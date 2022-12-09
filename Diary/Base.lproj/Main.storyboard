@@ -89,11 +89,96 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kef-s9-zDn" secondAttribute="trailing" id="lE3-vf-MlO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0l5-LF-0Nj"/>
+                    <navigationItem key="navigationItem" id="0l5-LF-0Nj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q2U-uB-AEk">
+                            <connections>
+                                <segue destination="k8E-Xk-Iuz" kind="show" id="1Bu-t9-2bC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-88" y="-30"/>
+        </scene>
+        <!--Compose Diary-->
+        <scene sceneID="6Qz-6u-jU7">
+            <objects>
+                <viewController id="k8E-Xk-Iuz" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pdj-Fc-Zws">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-NJ-ZIY">
+                                <rect key="frame" x="24" y="127" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chH-kf-KfB">
+                                <rect key="frame" x="24" y="160" width="345" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8st-jD-sMc">
+                                <rect key="frame" x="24" y="218" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vcf-DE-Kfv">
+                                <rect key="frame" x="24" y="251" width="345" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="FKY-HL-KBi"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGY-lO-yQy">
+                                <rect key="frame" x="24" y="375" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9F-X3-PKg">
+                                <rect key="frame" x="24" y="408" width="345" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ywI-7a-jpK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="CeQ-NJ-ZIY" secondAttribute="trailing" constant="24" id="3Hl-vK-M3b"/>
+                            <constraint firstItem="8st-jD-sMc" firstAttribute="top" secondItem="chH-kf-KfB" secondAttribute="bottom" constant="24" id="3i2-dI-Izb"/>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="V9F-X3-PKg" secondAttribute="trailing" constant="24" id="AIZ-3g-7iw"/>
+                            <constraint firstItem="8st-jD-sMc" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="Ar8-gQ-5dE"/>
+                            <constraint firstItem="QGY-lO-yQy" firstAttribute="top" secondItem="vcf-DE-Kfv" secondAttribute="bottom" constant="24" id="B47-v9-gjh"/>
+                            <constraint firstItem="chH-kf-KfB" firstAttribute="top" secondItem="CeQ-NJ-ZIY" secondAttribute="bottom" constant="12" id="Dyf-mf-Hqu"/>
+                            <constraint firstItem="QGY-lO-yQy" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="FsQ-CE-l5i"/>
+                            <constraint firstItem="CeQ-NJ-ZIY" firstAttribute="top" secondItem="ywI-7a-jpK" secondAttribute="top" constant="24" id="KHo-SB-uaY"/>
+                            <constraint firstItem="CeQ-NJ-ZIY" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="Kd8-bC-L9Z"/>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="chH-kf-KfB" secondAttribute="trailing" constant="24" id="RHp-gX-FnX"/>
+                            <constraint firstItem="vcf-DE-Kfv" firstAttribute="top" secondItem="8st-jD-sMc" secondAttribute="bottom" constant="12" id="TrS-5q-Eb9"/>
+                            <constraint firstItem="V9F-X3-PKg" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="YyL-zb-1np"/>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="vcf-DE-Kfv" secondAttribute="trailing" constant="24" id="b9l-pK-VEv"/>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="8st-jD-sMc" secondAttribute="trailing" constant="24" id="eGG-G1-YFR"/>
+                            <constraint firstItem="chH-kf-KfB" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="flz-RE-tcu"/>
+                            <constraint firstItem="vcf-DE-Kfv" firstAttribute="top" secondItem="8st-jD-sMc" secondAttribute="bottom" constant="12" id="muN-AK-Acn"/>
+                            <constraint firstItem="V9F-X3-PKg" firstAttribute="top" secondItem="QGY-lO-yQy" secondAttribute="bottom" constant="12" id="tUl-cu-LgC"/>
+                            <constraint firstItem="ywI-7a-jpK" firstAttribute="trailing" secondItem="QGY-lO-yQy" secondAttribute="trailing" constant="24" id="vWF-Rv-TDM"/>
+                            <constraint firstItem="vcf-DE-Kfv" firstAttribute="leading" secondItem="ywI-7a-jpK" secondAttribute="leading" constant="24" id="wkc-DW-8wD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compose Diary" id="kZe-DD-bhV">
+                        <barButtonItem key="rightBarButtonItem" title="register" id="gJR-TF-srs"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPf-1F-22Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="-15"/>
         </scene>
         <!--Diary*-->
         <scene sceneID="hfW-om-po4">
@@ -204,6 +289,9 @@
         <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
