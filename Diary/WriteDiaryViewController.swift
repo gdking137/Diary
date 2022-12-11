@@ -7,21 +7,21 @@
 
 import UIKit
 
+protocol WriteDiaryViewDelegate: AnyObject{
+    func didSelectRegister(diary: Diary) // this method will send the completed diary
+    
+}
+
 class WriteDiaryViewController: UIViewController {
     
     
     @IBOutlet var titleTextField: UITextField!
-    
-    
     @IBOutlet var contentsTextView: UITextView!
-    
     @IBOutlet var dateTextField: UITextField!
-    
-    
     @IBOutlet var confirmButton: UIBarButtonItem!
-    
     private let datePicker = UIDatePicker()
     private var diaryDate : Date?
+    weak var delegate: WriteDiaryViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,14 @@ class WriteDiaryViewController: UIViewController {
     }
     
     @IBAction func tapConfirmButton(_ sender: UIBarButtonItem) {
+        guard let title = self.titleTextField.text else {return}
+        guard let contents = self.contentsTextView.text else {return}
+        guard let date = self.diaryDate else {return}
+        //let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+        let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+        self.delegate?.didSelectRegister(diary: diary)
+        self.navigationController?.popViewController(animated: true)
+        
     }
  
     
