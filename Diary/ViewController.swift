@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureCollectionView()
         // Do any additional setup after loading the view.
     }
     
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDataSource{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.diaryList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,11 +59,24 @@ extension ViewController: UICollectionViewDataSource{
     
 }
 
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width / 2) -  20, height: 200)
+    }
+}
 
+/*
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width / 2) -20, height: <#T##CGFloat#>)
+    }
+}
+*/
 
 extension ViewController: WriteDiaryViewDelegate{
     func didSelectRegister(diary: Diary) {
         self.diaryList.append(diary)
+        self.collectionView.reloadData()
     }
 }
 
