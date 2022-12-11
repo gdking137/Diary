@@ -56,4 +56,8 @@ class WriteDiaryViewController: UIViewController {
         self.diaryDate = datePicker.date
         self.dateTextField.text = formmater.string(from: datePicker.date)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
