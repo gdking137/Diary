@@ -11,7 +11,11 @@ class ViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
-    private var diaryList = [Diary]()
+    private var diaryList = [Diary](){
+        didSet{
+            self.saveDiaryList()   //Saves the change
+        }
+    }
     
     
     
@@ -20,6 +24,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
         // Do any additional setup after loading the view.
+        
+        self.loadDiaryList()
     }
     
     private func configureCollectionView(){
@@ -37,6 +43,33 @@ class ViewController: UIViewController {
         }
     }
 
+    private func saveDiaryList(){
+        let date = self.diaryList.map{
+            [
+                "title": $0.title,
+                "contents": $0.contents,
+                "date":$0.date,
+                "isStar": $0.isStar,
+            ]
+        }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(date, forKey: "diaryList")
+    }
+    
+    private func loadDiaryList(){
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else {return}
+        self.diaryList = data.compactMap {
+            guard let title = $0["title"] as? String else{ return nil  }
+            guard let contents = $0["contents"] as? String else { return nil}
+            //guard let date = $0["isStar"] as? Bool else { return nil}
+            guard let date = $0["date"] as? Date else {return nil}
+            guard let isStar = $0["isStar"] as? Bool else { return nil}
+            return Diary(title: title, contents: contents, date: date, isStar: isStar)
+        }
+    }
+    
+    
     private func dateToString(date: Date) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
@@ -65,13 +98,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-/*
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width / 2) -20, height: <#T##CGFloat#>)
-    }
-}
-*/
 
 extension ViewController: WriteDiaryViewDelegate{
     func didSelectRegister(diary: Diary) {
