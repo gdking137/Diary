@@ -67,6 +67,9 @@ class ViewController: UIViewController {
             guard let isStar = $0["isStar"] as? Bool else { return nil}
             return Diary(title: title, contents: contents, date: date, isStar: isStar)
         }
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending // ordering the list
+        })
     }
     
     
@@ -102,6 +105,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: WriteDiaryViewDelegate{
     func didSelectRegister(diary: Diary) {
         self.diaryList.append(diary)
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending // ordering the list
+        })
         self.collectionView.reloadData()
     }
 }
