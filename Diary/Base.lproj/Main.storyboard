@@ -303,7 +303,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="fbf-Ug-sCX">
             <objects>
-                <viewController id="oYE-MX-qhp" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="oYE-MX-qhp" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzi-jc-Trs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -365,6 +365,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="oYE-MX-qhp" eventType="touchUpInside" id="ln7-nj-sUs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMT-eK-xlL">
                                         <rect key="frame" x="123.33333333333334" y="0.0" width="73.333333333333343" height="34.333333333333336"/>
@@ -372,6 +375,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Delete">
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="oYE-MX-qhp" eventType="touchUpInside" id="LlZ-Xb-VsN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -395,6 +401,11 @@
                             <constraint firstItem="s3w-js-hfK" firstAttribute="leading" secondItem="VVh-RL-whB" secondAttribute="leading" constant="24" id="w7g-7L-D5T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="MQq-Tq-hxz" id="web-rW-gEK"/>
+                        <outlet property="dateLabel" destination="xN7-W6-Qdi" id="TjD-u6-bkW"/>
+                        <outlet property="titleLabel" destination="aIc-dR-7ls" id="NsJ-6s-qY5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwz-3B-sAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
