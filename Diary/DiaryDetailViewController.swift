@@ -76,7 +76,13 @@ class DiaryDetailViewController: UIViewController {
     
     
     @objc func tapStarButton(){
-        
+        guard let isStar = self.diary?.isStar else {return}
+        if isStar {
+            self.starButton?.image = UIImage(systemName: "star")
+        } else{
+            self.starButton?.image = UIImage(systemName: "star.fill")
+        }
+        self.diary?.isStar = !isStar
     }
     
     deinit {
