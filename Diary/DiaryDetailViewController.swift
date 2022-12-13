@@ -38,7 +38,7 @@ class DiaryDetailViewController: UIViewController {
         self.dateLabel.text = self.dateToString(date: diary.date)
         self.starButton = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(tapStarButton))
         self.starButton?.image = diary.isStar ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-        self.starButton?.tintColor = .orange
+        self.starButton?.tintColor = .orange 
         self.navigationItem.rightBarButtonItem = self.starButton
     }
     
@@ -75,7 +75,7 @@ class DiaryDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+        
     @objc func tapStarButton(){
         guard let isStar = self.diary?.isStar else {return}
         guard let indexPath = self.indexPath else {return}
