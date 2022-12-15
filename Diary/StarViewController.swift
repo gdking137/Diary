@@ -45,11 +45,11 @@ class StarViewController: UIViewController {
 
   private func dateToString(date: Date) -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
-    formatter.locale = Locale(identifier: "ko_KR")
+    formatter.dateFormat = "yy MM dd(EEEEE)"
+    //formatter.locale = Locale(identifier: "ko_KR")
     return formatter.string(from: date)
   }
-
+  var testing = "git"
   private func loadStarDiaryList() {
     let userDefaults = UserDefaults.standard
     guard let data = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
